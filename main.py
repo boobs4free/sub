@@ -10,7 +10,7 @@ def fetch(url):
     response = requests.get(url)
     data = response.json()
 
-    return cleaned_data
+    return data
 
 def save_to_file(data, filename='mix.json'):
     with open(filename, 'w', encoding='utf-8') as file:
