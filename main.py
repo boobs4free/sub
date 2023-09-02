@@ -1,11 +1,17 @@
 import requests
 import re
 import json
+import random
+import string
+
+def generate_random_string(length=4):
+    return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(length))
 
 def clean_string(value):
     # Regular expression to capture the pattern "@<any characters including . and _>"
     pattern_telegram = r'@[\w\._]+'
-    cleaned = re.sub(pattern_telegram, '', value)
+    replacement = generate_random_string()
+    cleaned = re.sub(pattern_telegram, replacement, value)
     cleaned = cleaned.replace("رایگان", '').strip()
     return cleaned
 
