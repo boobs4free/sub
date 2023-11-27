@@ -6,7 +6,7 @@ def fetch(url):
 
         # Check if the request was successful
         if response.status_code == 200:
-            #print(response.json())
+            print(response.text)
             return response.text
         else:
             print(f"Error: Received status code {response.status_code}")
