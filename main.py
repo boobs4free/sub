@@ -4,6 +4,11 @@ import json
 def fetch(url):
     try:
         response = requests.get(url)
+        print(response)
+
+        # Print the status code and response text for debugging
+        #print(f"Status Code: {response.status_code}")
+        #print(f"Response Content: {response.text}")
 
         # Check if the request was successful
         if response.status_code == 200:
@@ -16,12 +21,14 @@ def fetch(url):
         return None
     except json.JSONDecodeError as e:
         print(f"Failed to decode JSON: {e}")
-        print("Response content:", response.text)
         return None
-        
+
+
 def save_to_file(data, filename='mix.json'):
     with open(filename, 'w', encoding='utf-8') as file:
-        json.dump(data, file, ensure_ascii=False, indent=4)
+        # Convert the JSON object to a string
+        #json_string = json.dumps(data, ensure_ascii=False, indent=4)
+        file.write(data)
 
 url = 'https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/singbox/sfasfi/mix.json'
 cleaned_data = fetch(url)
