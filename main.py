@@ -18,6 +18,10 @@ def fetch(url):
         print(f"Failed to decode JSON: {e}")
         print("Response content:", response.text)
         return None
+        
+def save_to_file(data, filename='mix.json'):
+    with open(filename, 'w', encoding='utf-8') as file:
+        json.dump(data, file, ensure_ascii=False, indent=4)
 
 url = 'https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/singbox/sfasfi/mix.json'
 cleaned_data = fetch(url)
