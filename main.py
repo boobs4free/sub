@@ -30,7 +30,7 @@ def save_to_file(data, filename='mix.json'):
         #json_string = json.dumps(data, ensure_ascii=False, indent=4)
         file.write(data)
 
-url = 'https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/singbox/sfasfi/mix.json'
+url = 'https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/singbox/sfasfi/vless.json'
 cleaned_data = fetch(url)
 
 if cleaned_data is not None:
