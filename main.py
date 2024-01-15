@@ -31,9 +31,16 @@ def save_to_file(data, filename='mix.json'):
         file.write(data)
 
 url = 'https://raw.githubusercontent.com/yebekhe/TVC/main/lite/subscriptions/singbox/vless.json'
+url2 = 'https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/singbox/mix.json'
 cleaned_data = fetch(url)
+cleaned_data2 = fetch(url2)
 
 if cleaned_data is not None:
     save_to_file(cleaned_data)
+else:
+    print("No data to save.")
+
+if cleaned_data2 is not None:
+    save_to_file(cleaned_data2, "mix2.json")
 else:
     print("No data to save.")
