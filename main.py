@@ -30,7 +30,7 @@ def save_to_file(data, filename='mix.json'):
         #json_string = json.dumps(data, ensure_ascii=False, indent=4)
         file.write(data)
 
-url = 'https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/singbox/ss.json'
+url = 'https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/singbox/vless.json'
 url2 = 'https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/singbox/mix.json'
 cleaned_data = fetch(url)
 cleaned_data2 = fetch(url2)
