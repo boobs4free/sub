@@ -36,7 +36,7 @@ cleaned_data = fetch(url)
 cleaned_data2 = fetch(url2)
 
 if cleaned_data is not None:
-    save_to_file(cleaned_data)
+    save_to_file(cleaned_data, "mix.json.old")
 else:
     print("No data to save.")
 
