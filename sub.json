@@ -1,1 +1,162 @@
-
+[
+  {
+    "dns" : {
+      "queryStrategy" : "UseIPv4",
+      "servers" : [
+        "https:\/\/1.0.0.1\/dns-query"
+      ],
+      "tag" : "dns_out"
+    },
+    "fakedns" : [
+      {
+        "ipPool" : "198.20.0.0\/15",
+        "poolSize" : 512
+      },
+      {
+        "ipPool" : "fc00::\/64",
+        "poolSize" : 512
+      }
+    ],
+    "inbounds" : [
+      {
+        "listen" : "127.0.0.1",
+        "port" : 1080,
+        "protocol" : "socks",
+        "settings" : {
+          "auth" : "noauth",
+          "udp" : true
+        },
+        "sniffing" : {
+          "destOverride" : [
+            "http",
+            "tls",
+            "quic",
+            "fakedns"
+          ],
+          "enabled" : true,
+          "routeOnly" : true
+        },
+        "tag" : "socks"
+      }
+    ],
+    "log" : {
+      "loglevel" : "warning"
+    },
+    "outbounds" : [
+      {
+        "mux" : {
+          "concurrency" : 8,
+          "enabled" : true,
+          "xudpConcurrency" : 8,
+          "xudpProxyUDP443" : "reject"
+        },
+        "protocol" : "vless",
+        "settings" : {
+          "vnext" : [
+            {
+              "address" : "www.speedtest.net",
+              "port" : 443,
+              "users" : [
+                {
+                  "encryption" : "none",
+                  "id" : "598068d3-80de-4c6c-81a9-db839ed77679"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings" : {
+          "network" : "ws",
+          "security" : "tls",
+          "sockopt" : {
+            "dialerProxy" : "dialer"
+          },
+          "tlsSettings" : {
+            "allowInsecure" : true,
+            "alpn" : [
+              "http\/1.1"
+            ],
+            "fingerprint" : "chrome",
+            "serverName" : "parsdl.xyz"
+          },
+          "wsSettings" : {
+            "headers" : {
+              "Pragma" : "no-cache",
+              "User-Agent" : "Mozilla\/5.0 (Linux; Android 10; K) AppleWebKit\/537.36 (KHTML, like Gecko) SamsungBrowser\/24.0 Chrome\/117.0.0.0 Mobile Safari\/537.36"
+            },
+            "host" : "hj-de.parsdl.xyz",
+            "path" : "\/hajmi?ed=2560"
+          }
+        },
+        "tag" : "proxy"
+      },
+      {
+        "protocol" : "freedom",
+        "settings" : {
+          "fragment" : {
+            "interval" : "3-5",
+            "length" : "1-5",
+            "packets" : "1-2"
+          }
+        },
+        "tag" : "dialer"
+      },
+      {
+        "protocol" : "freedom",
+        "settings" : {
+          "domainStrategy" : "UseIPv4"
+        },
+        "tag" : "direct"
+      },
+      {
+        "protocol" : "blackhole",
+        "tag" : "block"
+      },
+      {
+        "protocol" : "dns",
+        "tag" : "dns-out"
+      }
+    ],
+    "policy" : {
+  
+    },
+    "remarks" : "🇩🇪 ☁️ [FRG]",
+    "routing" : {
+      "domainStrategy" : "IPIfNonMatch",
+      "rules" : [
+        {
+          "domain" : [
+            "geosite:category-ads-all"
+          ],
+          "outboundTag" : "block"
+        },
+        {
+          "network" : "udp",
+          "outboundTag" : "dns-out",
+          "port" : "53"
+        },
+        {
+          "domain" : [
+            "regexp:.*\\.ir",
+            "domain:.ir"
+          ],
+          "outboundTag" : "direct"
+        },
+        {
+          "ip" : [
+            "geoip:ir",
+            "geoip:private"
+          ],
+          "outboundTag" : "direct"
+        },
+        {
+          "outboundTag" : "block",
+          "protocol" : [
+            "bittorrent"
+          ],
+          "type" : "field"
+        }
+      ]
+    }
+  }
+]
