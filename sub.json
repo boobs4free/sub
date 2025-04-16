@@ -155,7 +155,7 @@
             "statsOutboundDownlink": true
         }
     },
-    "remarks": "CF",
+    "remarks": "☁️ Global",
     "routing": {
         "domainStrategy": "AsIs",
         "rules": [
