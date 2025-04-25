@@ -1,69 +1,12 @@
 [
 {
+    "remarks": "🐉☁️ Global",
     "dns": {
         "hosts": {
-            "geosite:category-ads-all": "127.0.0.1",
-            "domain:googleapis.cn": "googleapis.com",
-            "dns.alidns.com": [
-                "223.5.5.5",
-                "223.6.6.6",
-                "2400:3200::1",
-                "2400:3200:baba::1"
-            ],
-            "one.one.one.one": [
-                "1.1.1.1",
-                "1.0.0.1",
-                "2606:4700:4700::1111",
-                "2606:4700:4700::1001"
-            ],
-            "dot.pub": [
-                "1.12.12.12",
-                "120.53.53.53"
-            ],
-            "dns.google": [
-                "8.8.8.8",
-                "8.8.4.4",
-                "2001:4860:4860::8888",
-                "2001:4860:4860::8844"
-            ],
-            "dns.quad9.net": [
-                "9.9.9.9",
-                "149.112.112.112",
-                "2620:fe::fe",
-                "2620:fe::9"
-            ],
-            "common.dot.dns.yandex.net": [
-                "77.88.8.8",
-                "77.88.8.1",
-                "2a02:6b8::feed:0ff",
-                "2a02:6b8:0:1::feed:0ff"
-            ]
+            "domain:googleapis.cn": "googleapis.com"
         },
         "servers": [
-            "1.1.1.1",
-            {
-                "address": "1.1.1.1",
-                "domains": [
-                    "domain:googleapis.cn",
-                    "domain:gstatic.com"
-                ]
-            },
-            {
-                "address": "223.5.5.5",
-                "domains": [
-                    "domain:dns.alidns.com",
-                    "domain:doh.pub",
-                    "domain:dot.pub",
-                    "domain:doh.360.cn",
-                    "domain:dot.360.cn",
-                    "geosite:cn",
-                    "geosite:geolocation-cn"
-                ],
-                "expectIPs": [
-                    "geoip:cn"
-                ],
-                "skipFallback": true
-            }
+            "1.1.1.1"
         ]
     },
     "inbounds": [
@@ -81,10 +24,18 @@
                     "http",
                     "tls"
                 ],
-                "enabled": true,
-                "routeOnly": false
+                "enabled": true
             },
             "tag": "socks"
+        },
+        {
+            "listen": "127.0.0.1",
+            "port": 10809,
+            "protocol": "http",
+            "settings": {
+                "userLevel": 8
+            },
+            "tag": "http"
         }
     ],
     "log": {
@@ -92,22 +43,339 @@
     },
     "outbounds": [
         {
-            "mux": {
-                "concurrency": -1,
-                "enabled": false
+            "protocol": "wireguard",
+            "settings": {
+                "address": [
+                    "172.16.0.2/32",
+                    "2606:4700:110:8d3e:21e7:361b:611:3255/128"
+                ],
+                "mtu": 1280,
+                "peers": [
+                    {
+                        "endpoint": "engage.cloudflareclient.com:2408",
+                        "publicKey": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
+                    }
+                ],
+                "reserved": [
+                    107,
+                    47,
+                    15
+                ],
+                "secretKey": "sCvmeko7th9HKSUjG81gciBecuey8tmOLqsh8mzmwVQ="
             },
+            "streamSettings": {
+                "sockopt": {
+                    "dialerProxy": "noise"
+                }
+            },
+            "tag": "warpMain"
+        },
+        {
+            "protocol": "freedom",
+            "settings": {},
+            "tag": "direct"
+        },
+        {
+            "protocol": "freedom",
+            "settings": {
+                "noises": [
+                    {
+                        "type": "base64",
+                        "packet": "7gAAAAEIqqqqqqqqqqoAAETQ",
+                        "delay": "10"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "7gAAAAEIqqqqqqqqqqoAAETQ",
+                        "delay": "10"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "7gAAAAEIqqqqqqqqqqoAAETQ",
+                        "delay": "10"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "7gAAAAEIqqqqqqqqqqoAAETQ",
+                        "delay": "10"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "7nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                        "delay": "10-13"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "8nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                        "delay": "10-15"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "9nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                        "delay": "10"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "AnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                        "delay": "10-15"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "BnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                        "delay": "10-17"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "CnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                        "delay": "10-15"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "DnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                        "delay": "10-15"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "EnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                        "delay": "10-15"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "7gAAAAEIqqqqqqqqqqoAAETQ",
+                        "delay": "10"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "7nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                        "delay": "10-16"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "7gAAAAEIqqqqqqqqqqoAAETQ",
+                        "delay": "10"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "7nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                        "delay": "10-13"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "8nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                        "delay": "10-15"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "9nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                        "delay": "10"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "AnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                        "delay": "10-15"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "BnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                        "delay": "10-17"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "CnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                        "delay": "10-15"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "DnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                        "delay": "10-15"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "EnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                        "delay": "10-15"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "7gAAAAEIqqqqqqqqqqoAAETQ",
+                        "delay": "10"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "7nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                        "delay": "10-13"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "8nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                        "delay": "10-15"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "9nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                        "delay": "10"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "AnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                        "delay": "10-15"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "BnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                        "delay": "10-17"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "CnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                        "delay": "10-15"
+                    },
+                    {
+                        "type": "base64",
+                        "packet": "EnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                        "delay": "10-15"
+                    }
+                ]
+            },
+            "tag": "noise"
+        },
+        {
+            "protocol": "blackhole",
+            "settings": {
+                "response": {
+                    "type": "http"
+                }
+            },
+            "tag": "block"
+        }
+    ],
+    "routing": {
+        "domainStrategy": "IPIfNonMatch",
+        "rules": [
+            {
+                "type": "field",
+                "inboundTag": [
+                    "api"
+                ],
+                "outboundTag": "api",
+                "enabled": true
+            },
+            {
+                "ip": [
+                    "1.1.1.1"
+                ],
+                "outboundTag": "warpMain",
+                "port": "53",
+                "type": "field"
+            },
+            {
+                "id": "5627785659655799759",
+                "type": "field",
+                "port": "0-65535",
+                "outboundTag": "warpMain",
+                "enabled": true
+            }
+        ]
+    }
+},
+{
+    "remarks": "Germany",
+    "log": {
+        "loglevel": "warning"
+    },
+    "dns": {
+        "queryStrategy": "UseIPv4",
+        "servers": [
+            "https://1.0.0.1/dns-query"
+        ],
+        "tag": "dns_out"
+    },
+    "routing": {
+        "domainStrategy": "IPIfNonMatch",
+        "rules": [
+            {
+                "domain": [
+                    "geosite:category-ads-all"
+                ],
+                "outboundTag": "block"
+            },
+            {
+                "port": "53",
+                "network": "udp",
+                "outboundTag": "dns-out"
+            },
+            {
+                "domain": [
+                    "regexp:.*\\.ir",
+                    "domain:.ir"
+                ],
+                "outboundTag": "direct"
+            },
+            {
+                "ip": [
+                    "geoip:ir",
+                    "geoip:private"
+                ],
+                "outboundTag": "direct"
+            },
+            {
+                "protocol": [
+                    "bittorrent"
+                ],
+                "outboundTag": "block",
+                "type": "field"
+            }
+        ]
+    },
+    "policy": {
+        "system": {
+            "statsOutboundDownlink": true,
+            "statsOutboundUplink": true
+        }
+    },
+    "inbounds": [
+        {
+            "port": 10808,
+            "protocol": "socks",
+            "settings": {
+                "auth": "noauth",
+                "udp": true,
+                "userLevel": 8
+            },
+            "sniffing": {
+                "destOverride": [
+                    "http",
+                    "tls"
+                ],
+                "enabled": true
+            },
+            "tag": "socks"
+        },
+        {
+            "port": 10809,
+            "protocol": "http",
+            "settings": {
+                "userLevel": 8
+            },
+            "tag": "http"
+        }
+    ],
+    "outbounds": [
+        {
+            "tag": "proxy",
             "protocol": "vless",
             "settings": {
                 "vnext": [
                     {
-                        "address": "www.visa.com",
-                        "port": 8880,
+                        "address": "www.tgju.org",
+                        "port": 443,
                         "users": [
                             {
+                                "id": "15473813-eca2-465d-8c7f-0b639d9566e6",
+                                "security": "auto",
                                 "encryption": "none",
-                                "flow": "",
-                                "id": "vpn",
-                                "level": 8
+                                "email": "https://gozargah.github.io/marzban/",
+                                "alterId": 0,
+                                "flow": null
                             }
                         ]
                     }
@@ -115,219 +383,121 @@
             },
             "streamSettings": {
                 "network": "ws",
+                "security": "tls",
+                "tlsSettings": {
+                    "serverName": "85858569.xyz",
+                    "allowInsecure": true,
+                    "fingerprint": "chrome",
+                    "alpn": [
+                        "http/1.1"
+                    ],
+                    "show": false
+                },
                 "wsSettings": {
                     "headers": {
-                        "Host": "fg.andrew---tate.click"
+                        "Pragma": "no-cache",
+                        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_1_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Mobile/15E148 Safari/604.1"
                     },
-                    "path": "/?ed=2048"
+                    "path": "/hajmi?ed=2560",
+                    "host": "nb-de.85858569.xyz"
+                },
+                "sockopt": {
+                    "dialerProxy": "dialer"
                 }
             },
-            "tag": "proxy"
-        },
-        {
-            "protocol": "freedom",
-            "settings": {
-                "domainStrategy": "UseIP"
-            },
-            "tag": "direct"
-        },
-        {
-            "protocol": "blackhole",
-            "settings": {
-                "response": {
-                    "type": "http"
-                }
-            },
-            "tag": "block"
-        }
-    ],
-    "policy": {
-        "levels": {
-            "8": {
-                "connIdle": 300,
-                "downlinkOnly": 1,
-                "handshake": 4,
-                "uplinkOnly": 1
+            "mux": {
+                "enabled": true,
+                "concurrency": 8,
+                "xudpConcurrency": 8,
+                "xudpProxyUDP443": "reject"
             }
         },
-        "system": {
-            "statsOutboundUplink": true,
-            "statsOutboundDownlink": true
+        {
+            "tag": "dialer",
+            "protocol": "freedom",
+            "settings": {
+                "fragment": {
+                    "packets": "1-2",
+                    "length": "1-5",
+                    "interval": "3-5"
+                }
+            }
+        },
+        {
+            "tag": "direct",
+            "protocol": "freedom",
+            "settings": {
+                "domainStrategy": "UseIPv4"
+            }
+        },
+        {
+            "tag": "block",
+            "protocol": "blackhole"
+        },
+        {
+            "tag": "dns-out",
+            "protocol": "dns"
         }
+    ],
+    "stats": {}
+},
+{
+    "remarks": "Finland"
+    "log": {
+        "loglevel": "warning"
     },
-    "remarks": "☁️ Global",
+    "dns": {
+        "queryStrategy": "UseIPv4",
+        "servers": [
+            "https://1.0.0.1/dns-query"
+        ],
+        "tag": "dns_out"
+    },
     "routing": {
-        "domainStrategy": "AsIs",
+        "domainStrategy": "IPIfNonMatch",
         "rules": [
-            {
-                "ip": [
-                    "1.1.1.1"
-                ],
-                "outboundTag": "proxy",
-                "port": "53",
-                "type": "field"
-            },
-            {
-                "ip": [
-                    "223.5.5.5"
-                ],
-                "outboundTag": "direct",
-                "port": "53",
-                "type": "field"
-            },
-            {
-                "domain": [
-                    "domain:googleapis.cn",
-                    "domain:gstatic.com"
-                ],
-                "outboundTag": "proxy",
-                "type": "field"
-            },
-            {
-                "network": "udp",
-                "outboundTag": "block",
-                "port": "443",
-                "type": "field"
-            },
             {
                 "domain": [
                     "geosite:category-ads-all"
                 ],
-                "outboundTag": "block",
-                "type": "field"
+                "outboundTag": "block"
+            },
+            {
+                "port": "53",
+                "network": "udp",
+                "outboundTag": "dns-out"
             },
             {
                 "domain": [
-                    "geosite:private"
+                    "regexp:.*\\.ir",
+                    "domain:.ir"
                 ],
-                "outboundTag": "direct",
-                "type": "field"
+                "outboundTag": "direct"
             },
             {
                 "ip": [
+                    "geoip:ir",
                     "geoip:private"
                 ],
-                "outboundTag": "direct",
-                "type": "field"
+                "outboundTag": "direct"
             },
             {
-                "domain": [
-                    "domain:dns.alidns.com",
-                    "domain:doh.pub",
-                    "domain:dot.pub",
-                    "domain:doh.360.cn",
-                    "domain:dot.360.cn",
-                    "geosite:cn",
-                    "geosite:geolocation-cn"
+                "protocol": [
+                    "bittorrent"
                 ],
-                "outboundTag": "direct",
-                "type": "field"
-            },
-            {
-                "ip": [
-                    "223.5.5.5/32",
-                    "223.6.6.6/32",
-                    "2400:3200::1/128",
-                    "2400:3200:baba::1/128",
-                    "119.29.29.29/32",
-                    "1.12.12.12/32",
-                    "120.53.53.53/32",
-                    "2402:4e00::/128",
-                    "2402:4e00:1::/128",
-                    "180.76.76.76/32",
-                    "2400:da00::6666/128",
-                    "114.114.114.114/32",
-                    "114.114.115.115/32",
-                    "180.184.1.1/32",
-                    "180.184.2.2/32",
-                    "101.226.4.6/32",
-                    "218.30.118.6/32",
-                    "123.125.81.6/32",
-                    "140.207.198.6/32",
-                    "geoip:cn"
-                ],
-                "outboundTag": "direct",
-                "type": "field"
-            },
-            {
-                "outboundTag": "proxy",
-                "port": "0-65535",
+                "outboundTag": "block",
                 "type": "field"
             }
         ]
     },
-    "stats": {}
-},
-{
-    "dns": {
-        "hosts": {
-            "geosite:category-ads-all": "127.0.0.1",
-            "domain:googleapis.cn": "googleapis.com",
-            "dns.alidns.com": [
-                "223.5.5.5",
-                "223.6.6.6",
-                "2400:3200::1",
-                "2400:3200:baba::1"
-            ],
-            "one.one.one.one": [
-                "1.1.1.1",
-                "1.0.0.1",
-                "2606:4700:4700::1111",
-                "2606:4700:4700::1001"
-            ],
-            "dot.pub": [
-                "1.12.12.12",
-                "120.53.53.53"
-            ],
-            "dns.google": [
-                "8.8.8.8",
-                "8.8.4.4",
-                "2001:4860:4860::8888",
-                "2001:4860:4860::8844"
-            ],
-            "dns.quad9.net": [
-                "9.9.9.9",
-                "149.112.112.112",
-                "2620:fe::fe",
-                "2620:fe::9"
-            ],
-            "common.dot.dns.yandex.net": [
-                "77.88.8.8",
-                "77.88.8.1",
-                "2a02:6b8::feed:0ff",
-                "2a02:6b8:0:1::feed:0ff"
-            ]
-        },
-        "servers": [
-            "1.1.1.1",
-            {
-                "address": "1.1.1.1",
-                "domains": [
-                    "domain:googleapis.cn",
-                    "domain:gstatic.com"
-                ]
-            },
-            {
-                "address": "223.5.5.5",
-                "domains": [
-                    "domain:dns.alidns.com",
-                    "domain:doh.pub",
-                    "domain:dot.pub",
-                    "domain:doh.360.cn",
-                    "domain:dot.360.cn",
-                    "geosite:cn",
-                    "geosite:geolocation-cn"
-                ],
-                "expectIPs": [
-                    "geoip:cn"
-                ],
-                "skipFallback": true
-            }
-        ]
+    "policy": {
+        "system": {
+            "statsOutboundDownlink": true,
+            "statsOutboundUplink": true
+        }
     },
     "inbounds": [
         {
-            "listen": "127.0.0.1",
             "port": 10808,
             "protocol": "socks",
             "settings": {
@@ -340,175 +510,99 @@
                     "http",
                     "tls"
                 ],
-                "enabled": true,
-                "routeOnly": false
+                "enabled": true
             },
             "tag": "socks"
+        },
+        {
+            "port": 10809,
+            "protocol": "http",
+            "settings": {
+                "userLevel": 8
+            },
+            "tag": "http"
         }
     ],
-    "log": {
-        "loglevel": "warning"
-    },
     "outbounds": [
         {
-            "mux": {
-                "concurrency": -1,
-                "enabled": false
-            },
-            "protocol": "wireguard",
+            "tag": "proxy",
+            "protocol": "vless",
             "settings": {
-                "address": [
-                    "172.16.0.2/32"
-                ],
-                "mtu": 1280,
-                "peers": [
+                "vnext": [
                     {
-                        "endpoint": "162.159.192.199:7281",
-                        "preSharedKey": "",
-                        "publicKey": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
+                        "address": "www.tgju.org",
+                        "port": 443,
+                        "users": [
+                            {
+                                "id": "15473813-eca2-465d-8c7f-0b639d9566e6",
+                                "security": "auto",
+                                "encryption": "none",
+                                "email": "https://gozargah.github.io/marzban/",
+                                "alterId": 0,
+                                "flow": null
+                            }
+                        ]
                     }
-                ],
-                "reserved": [
-                    87,
-                    61,
-                    230
-                ],
-                "secretKey": "eFnUQurO/btpnWnmm/LeV0TVbFoUcHDM6HTVMWPhoXQ="
+                ]
             },
-            "tag": "proxy"
-        },
-        {
-            "protocol": "freedom",
-            "settings": {
-                "domainStrategy": "UseIP"
-            },
-            "tag": "direct"
-        },
-        {
-            "protocol": "blackhole",
-            "settings": {
-                "response": {
-                    "type": "http"
+            "streamSettings": {
+                "network": "ws",
+                "security": "tls",
+                "tlsSettings": {
+                    "serverName": "85858569.xyz",
+                    "allowInsecure": true,
+                    "fingerprint": "chrome",
+                    "alpn": [
+                        "http/1.1"
+                    ],
+                    "show": false
+                },
+                "wsSettings": {
+                    "headers": {
+                        "Pragma": "no-cache",
+                        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Mobile/15E148 Safari/604.1"
+                    },
+                    "path": "/hajmi?ed=2560",
+                    "host": "nb-fi.85858569.xyz"
+                },
+                "sockopt": {
+                    "dialerProxy": "dialer"
                 }
             },
-            "tag": "block"
-        }
-    ],
-    "policy": {
-        "levels": {
-            "8": {
-                "connIdle": 300,
-                "downlinkOnly": 1,
-                "handshake": 4,
-                "uplinkOnly": 1
+            "mux": {
+                "enabled": true,
+                "concurrency": 8,
+                "xudpConcurrency": 8,
+                "xudpProxyUDP443": "reject"
             }
         },
-        "system": {
-            "statsOutboundUplink": true,
-            "statsOutboundDownlink": true
-        }
-    },
-    "remarks": "quzuhfoysm",
-    "routing": {
-        "domainStrategy": "AsIs",
-        "rules": [
-            {
-                "ip": [
-                    "1.1.1.1"
-                ],
-                "outboundTag": "proxy",
-                "port": "53",
-                "type": "field"
-            },
-            {
-                "ip": [
-                    "223.5.5.5"
-                ],
-                "outboundTag": "direct",
-                "port": "53",
-                "type": "field"
-            },
-            {
-                "domain": [
-                    "domain:googleapis.cn",
-                    "domain:gstatic.com"
-                ],
-                "outboundTag": "proxy",
-                "type": "field"
-            },
-            {
-                "network": "udp",
-                "outboundTag": "block",
-                "port": "443",
-                "type": "field"
-            },
-            {
-                "domain": [
-                    "geosite:category-ads-all"
-                ],
-                "outboundTag": "block",
-                "type": "field"
-            },
-            {
-                "domain": [
-                    "geosite:private"
-                ],
-                "outboundTag": "direct",
-                "type": "field"
-            },
-            {
-                "ip": [
-                    "geoip:private"
-                ],
-                "outboundTag": "direct",
-                "type": "field"
-            },
-            {
-                "domain": [
-                    "domain:dns.alidns.com",
-                    "domain:doh.pub",
-                    "domain:dot.pub",
-                    "domain:doh.360.cn",
-                    "domain:dot.360.cn",
-                    "geosite:cn",
-                    "geosite:geolocation-cn"
-                ],
-                "outboundTag": "direct",
-                "type": "field"
-            },
-            {
-                "ip": [
-                    "223.5.5.5/32",
-                    "223.6.6.6/32",
-                    "2400:3200::1/128",
-                    "2400:3200:baba::1/128",
-                    "119.29.29.29/32",
-                    "1.12.12.12/32",
-                    "120.53.53.53/32",
-                    "2402:4e00::/128",
-                    "2402:4e00:1::/128",
-                    "180.76.76.76/32",
-                    "2400:da00::6666/128",
-                    "114.114.114.114/32",
-                    "114.114.115.115/32",
-                    "180.184.1.1/32",
-                    "180.184.2.2/32",
-                    "101.226.4.6/32",
-                    "218.30.118.6/32",
-                    "123.125.81.6/32",
-                    "140.207.198.6/32",
-                    "geoip:cn"
-                ],
-                "outboundTag": "direct",
-                "type": "field"
-            },
-            {
-                "outboundTag": "proxy",
-                "port": "0-65535",
-                "type": "field"
+        {
+            "tag": "dialer",
+            "protocol": "freedom",
+            "settings": {
+                "fragment": {
+                    "packets": "1-2",
+                    "length": "1-5",
+                    "interval": "3-5"
+                }
             }
-        ]
-    },
+        },
+        {
+            "tag": "direct",
+            "protocol": "freedom",
+            "settings": {
+                "domainStrategy": "UseIPv4"
+            }
+        },
+        {
+            "tag": "block",
+            "protocol": "blackhole"
+        },
+        {
+            "tag": "dns-out",
+            "protocol": "dns"
+        }
+    ],
     "stats": {}
 }
 ]
