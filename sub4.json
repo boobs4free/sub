@@ -1,608 +1,608 @@
 [
-{
-    "remarks": "🐉☁️ Global",
-    "dns": {
-        "hosts": {
-            "domain:googleapis.cn": "googleapis.com"
+    {
+        "remarks": "🐉☁️ Global",
+        "dns": {
+            "hosts": {
+                "domain:googleapis.cn": "googleapis.com"
+            },
+            "servers": [
+                "1.1.1.1"
+            ]
         },
-        "servers": [
-            "1.1.1.1"
-        ]
-    },
-    "inbounds": [
-        {
-            "listen": "127.0.0.1",
-            "port": 10808,
-            "protocol": "socks",
-            "settings": {
-                "auth": "noauth",
-                "udp": true,
-                "userLevel": 8
-            },
-            "sniffing": {
-                "destOverride": [
-                    "http",
-                    "tls"
-                ],
-                "enabled": true
-            },
-            "tag": "socks"
-        },
-        {
-            "listen": "127.0.0.1",
-            "port": 10809,
-            "protocol": "http",
-            "settings": {
-                "userLevel": 8
-            },
-            "tag": "http"
-        }
-    ],
-    "log": {
-        "loglevel": "warning"
-    },
-    "outbounds": [
-        {
-            "protocol": "wireguard",
-            "settings": {
-                "address": [
-                    "172.16.0.2/32",
-                    "2606:4700:110:8d3e:21e7:361b:611:3255/128"
-                ],
-                "mtu": 1280,
-                "peers": [
-                    {
-                        "endpoint": "engage.cloudflareclient.com:2408",
-                        "publicKey": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
-                    }
-                ],
-                "reserved": [
-                    107,
-                    47,
-                    15
-                ],
-                "secretKey": "sCvmeko7th9HKSUjG81gciBecuey8tmOLqsh8mzmwVQ="
-            },
-            "streamSettings": {
-                "sockopt": {
-                    "dialerProxy": "noise"
-                }
-            },
-            "tag": "warpMain"
-        },
-        {
-            "protocol": "freedom",
-            "settings": {},
-            "tag": "direct"
-        },
-        {
-            "protocol": "freedom",
-            "settings": {
-                "noises": [
-                    {
-                        "type": "base64",
-                        "packet": "7gAAAAEIqqqqqqqqqqoAAETQ",
-                        "delay": "10"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "7gAAAAEIqqqqqqqqqqoAAETQ",
-                        "delay": "10"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "7gAAAAEIqqqqqqqqqqoAAETQ",
-                        "delay": "10"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "7gAAAAEIqqqqqqqqqqoAAETQ",
-                        "delay": "10"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "7nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
-                        "delay": "10-13"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "8nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
-                        "delay": "10-15"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "9nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
-                        "delay": "10"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "AnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
-                        "delay": "10-15"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "BnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
-                        "delay": "10-17"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "CnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
-                        "delay": "10-15"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "DnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
-                        "delay": "10-15"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "EnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
-                        "delay": "10-15"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "7gAAAAEIqqqqqqqqqqoAAETQ",
-                        "delay": "10"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "7nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
-                        "delay": "10-16"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "7gAAAAEIqqqqqqqqqqoAAETQ",
-                        "delay": "10"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "7nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
-                        "delay": "10-13"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "8nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
-                        "delay": "10-15"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "9nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
-                        "delay": "10"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "AnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
-                        "delay": "10-15"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "BnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
-                        "delay": "10-17"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "CnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
-                        "delay": "10-15"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "DnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
-                        "delay": "10-15"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "EnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
-                        "delay": "10-15"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "7gAAAAEIqqqqqqqqqqoAAETQ",
-                        "delay": "10"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "7nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
-                        "delay": "10-13"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "8nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
-                        "delay": "10-15"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "9nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
-                        "delay": "10"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "AnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
-                        "delay": "10-15"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "BnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
-                        "delay": "10-17"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "CnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
-                        "delay": "10-15"
-                    },
-                    {
-                        "type": "base64",
-                        "packet": "EnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
-                        "delay": "10-15"
-                    }
-                ]
-            },
-            "tag": "noise"
-        },
-        {
-            "protocol": "blackhole",
-            "settings": {
-                "response": {
-                    "type": "http"
-                }
-            },
-            "tag": "block"
-        }
-    ],
-    "routing": {
-        "domainStrategy": "IPIfNonMatch",
-        "rules": [
+        "inbounds": [
             {
-                "type": "field",
-                "inboundTag": [
-                    "api"
-                ],
-                "outboundTag": "api",
-                "enabled": true
+                "listen": "127.0.0.1",
+                "port": 10808,
+                "protocol": "socks",
+                "settings": {
+                    "auth": "noauth",
+                    "udp": true,
+                    "userLevel": 8
+                },
+                "sniffing": {
+                    "destOverride": [
+                        "http",
+                        "tls"
+                    ],
+                    "enabled": true
+                },
+                "tag": "socks"
             },
             {
-                "ip": [
-                    "1.1.1.1"
-                ],
-                "outboundTag": "warpMain",
-                "port": "53",
-                "type": "field"
-            },
-            {
-                "id": "5627785659655799759",
-                "type": "field",
-                "port": "0-65535",
-                "outboundTag": "warpMain",
-                "enabled": true
+                "listen": "127.0.0.1",
+                "port": 10809,
+                "protocol": "http",
+                "settings": {
+                    "userLevel": 8
+                },
+                "tag": "http"
             }
-        ]
+        ],
+        "log": {
+            "loglevel": "warning"
+        },
+        "outbounds": [
+            {
+                "protocol": "wireguard",
+                "settings": {
+                    "address": [
+                        "172.16.0.2/32",
+                        "2606:4700:110:8d3e:21e7:361b:611:3255/128"
+                    ],
+                    "mtu": 1280,
+                    "peers": [
+                        {
+                            "endpoint": "engage.cloudflareclient.com:2408",
+                            "publicKey": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo="
+                        }
+                    ],
+                    "reserved": [
+                        107,
+                        47,
+                        15
+                    ],
+                    "secretKey": "sCvmeko7th9HKSUjG81gciBecuey8tmOLqsh8mzmwVQ="
+                },
+                "streamSettings": {
+                    "sockopt": {
+                        "dialerProxy": "noise"
+                    }
+                },
+                "tag": "warpMain"
+            },
+            {
+                "protocol": "freedom",
+                "settings": {},
+                "tag": "direct"
+            },
+            {
+                "protocol": "freedom",
+                "settings": {
+                    "noises": [
+                        {
+                            "type": "base64",
+                            "packet": "7gAAAAEIqqqqqqqqqqoAAETQ",
+                            "delay": "10"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "7gAAAAEIqqqqqqqqqqoAAETQ",
+                            "delay": "10"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "7gAAAAEIqqqqqqqqqqoAAETQ",
+                            "delay": "10"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "7gAAAAEIqqqqqqqqqqoAAETQ",
+                            "delay": "10"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "7nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                            "delay": "10-13"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "8nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                            "delay": "10-15"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "9nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                            "delay": "10"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "AnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                            "delay": "10-15"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "BnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                            "delay": "10-17"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "CnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                            "delay": "10-15"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "DnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                            "delay": "10-15"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "EnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                            "delay": "10-15"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "7gAAAAEIqqqqqqqqqqoAAETQ",
+                            "delay": "10"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "7nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                            "delay": "10-16"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "7gAAAAEIqqqqqqqqqqoAAETQ",
+                            "delay": "10"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "7nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                            "delay": "10-13"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "8nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                            "delay": "10-15"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "9nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                            "delay": "10"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "AnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                            "delay": "10-15"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "BnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                            "delay": "10-17"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "CnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                            "delay": "10-15"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "DnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                            "delay": "10-15"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "EnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                            "delay": "10-15"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "7gAAAAEIqqqqqqqqqqoAAETQ",
+                            "delay": "10"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "7nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                            "delay": "10-13"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "8nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                            "delay": "10-15"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "9nQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                            "delay": "10"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "AnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                            "delay": "10-15"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "BnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                            "delay": "10-17"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "CnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                            "delay": "10-15"
+                        },
+                        {
+                            "type": "base64",
+                            "packet": "EnQBAAABAAAAAAAABnQtcmluZwZtc2VkZ2UDbmV0AAABAAE=",
+                            "delay": "10-15"
+                        }
+                    ]
+                },
+                "tag": "noise"
+            },
+            {
+                "protocol": "blackhole",
+                "settings": {
+                    "response": {
+                        "type": "http"
+                    }
+                },
+                "tag": "block"
+            }
+        ],
+        "routing": {
+            "domainStrategy": "IPIfNonMatch",
+            "rules": [
+                {
+                    "type": "field",
+                    "inboundTag": [
+                        "api"
+                    ],
+                    "outboundTag": "api",
+                    "enabled": true
+                },
+                {
+                    "ip": [
+                        "1.1.1.1"
+                    ],
+                    "outboundTag": "warpMain",
+                    "port": "53",
+                    "type": "field"
+                },
+                {
+                    "id": "5627785659655799759",
+                    "type": "field",
+                    "port": "0-65535",
+                    "outboundTag": "warpMain",
+                    "enabled": true
+                }
+            ]
+        }
+    },
+    {
+        "remarks": "Germany",
+        "log": {
+            "loglevel": "warning"
+        },
+        "dns": {
+            "queryStrategy": "UseIPv4",
+            "servers": [
+                "https://1.0.0.1/dns-query"
+            ],
+            "tag": "dns_out"
+        },
+        "routing": {
+            "domainStrategy": "IPIfNonMatch",
+            "rules": [
+                {
+                    "domain": [
+                        "geosite:category-ads-all"
+                    ],
+                    "outboundTag": "block"
+                },
+                {
+                    "port": "53",
+                    "network": "udp",
+                    "outboundTag": "dns-out"
+                },
+                {
+                    "domain": [
+                        "regexp:.*\\.ir",
+                        "domain:.ir"
+                    ],
+                    "outboundTag": "direct"
+                },
+                {
+                    "ip": [
+                        "geoip:ir",
+                        "geoip:private"
+                    ],
+                    "outboundTag": "direct"
+                },
+                {
+                    "protocol": [
+                        "bittorrent"
+                    ],
+                    "outboundTag": "block",
+                    "type": "field"
+                }
+            ]
+        },
+        "policy": {
+            "system": {
+                "statsOutboundDownlink": true,
+                "statsOutboundUplink": true
+            }
+        },
+        "inbounds": [
+            {
+                "port": 10808,
+                "protocol": "socks",
+                "settings": {
+                    "auth": "noauth",
+                    "udp": true,
+                    "userLevel": 8
+                },
+                "sniffing": {
+                    "destOverride": [
+                        "http",
+                        "tls"
+                    ],
+                    "enabled": true
+                },
+                "tag": "socks"
+            },
+            {
+                "port": 10809,
+                "protocol": "http",
+                "settings": {
+                    "userLevel": 8
+                },
+                "tag": "http"
+            }
+        ],
+        "outbounds": [
+            {
+                "tag": "proxy",
+                "protocol": "vless",
+                "settings": {
+                    "vnext": [
+                        {
+                            "address": "www.tgju.org",
+                            "port": 443,
+                            "users": [
+                                {
+                                    "id": "15473813-eca2-465d-8c7f-0b639d9566e6",
+                                    "security": "auto",
+                                    "encryption": "none",
+                                    "email": "https://gozargah.github.io/marzban/",
+                                    "alterId": 0,
+                                    "flow": null
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "streamSettings": {
+                    "network": "ws",
+                    "security": "tls",
+                    "tlsSettings": {
+                        "serverName": "85858569.xyz",
+                        "allowInsecure": true,
+                        "fingerprint": "chrome",
+                        "alpn": [
+                            "http/1.1"
+                        ],
+                        "show": false
+                    },
+                    "wsSettings": {
+                        "headers": {
+                            "Pragma": "no-cache",
+                            "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_1_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Mobile/15E148 Safari/604.1"
+                        },
+                        "path": "/hajmi?ed=2560",
+                        "host": "nb-de.85858569.xyz"
+                    },
+                    "sockopt": {
+                        "dialerProxy": "dialer"
+                    }
+                },
+                "mux": {
+                    "enabled": true,
+                    "concurrency": 8,
+                    "xudpConcurrency": 8,
+                    "xudpProxyUDP443": "reject"
+                }
+            },
+            {
+                "tag": "dialer",
+                "protocol": "freedom",
+                "settings": {
+                    "fragment": {
+                        "packets": "1-2",
+                        "length": "1-5",
+                        "interval": "3-5"
+                    }
+                }
+            },
+            {
+                "tag": "direct",
+                "protocol": "freedom",
+                "settings": {
+                    "domainStrategy": "UseIPv4"
+                }
+            },
+            {
+                "tag": "block",
+                "protocol": "blackhole"
+            },
+            {
+                "tag": "dns-out",
+                "protocol": "dns"
+            }
+        ],
+        "stats": {}
+    },
+    {
+        "remarks": "Finland",
+        "log": {
+            "loglevel": "warning"
+        },
+        "dns": {
+            "queryStrategy": "UseIPv4",
+            "servers": [
+                "https://1.0.0.1/dns-query"
+            ],
+            "tag": "dns_out"
+        },
+        "routing": {
+            "domainStrategy": "IPIfNonMatch",
+            "rules": [
+                {
+                    "domain": [
+                        "geosite:category-ads-all"
+                    ],
+                    "outboundTag": "block"
+                },
+                {
+                    "port": "53",
+                    "network": "udp",
+                    "outboundTag": "dns-out"
+                },
+                {
+                    "domain": [
+                        "regexp:.*\\.ir",
+                        "domain:.ir"
+                    ],
+                    "outboundTag": "direct"
+                },
+                {
+                    "ip": [
+                        "geoip:ir",
+                        "geoip:private"
+                    ],
+                    "outboundTag": "direct"
+                },
+                {
+                    "protocol": [
+                        "bittorrent"
+                    ],
+                    "outboundTag": "block",
+                    "type": "field"
+                }
+            ]
+        },
+        "policy": {
+            "system": {
+                "statsOutboundDownlink": true,
+                "statsOutboundUplink": true
+            }
+        },
+        "inbounds": [
+            {
+                "port": 10808,
+                "protocol": "socks",
+                "settings": {
+                    "auth": "noauth",
+                    "udp": true,
+                    "userLevel": 8
+                },
+                "sniffing": {
+                    "destOverride": [
+                        "http",
+                        "tls"
+                    ],
+                    "enabled": true
+                },
+                "tag": "socks"
+            },
+            {
+                "port": 10809,
+                "protocol": "http",
+                "settings": {
+                    "userLevel": 8
+                },
+                "tag": "http"
+            }
+        ],
+        "outbounds": [
+            {
+                "tag": "proxy",
+                "protocol": "vless",
+                "settings": {
+                    "vnext": [
+                        {
+                            "address": "www.tgju.org",
+                            "port": 443,
+                            "users": [
+                                {
+                                    "id": "15473813-eca2-465d-8c7f-0b639d9566e6",
+                                    "security": "auto",
+                                    "encryption": "none",
+                                    "email": "https://gozargah.github.io/marzban/",
+                                    "alterId": 0,
+                                    "flow": null
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "streamSettings": {
+                    "network": "ws",
+                    "security": "tls",
+                    "tlsSettings": {
+                        "serverName": "85858569.xyz",
+                        "allowInsecure": true,
+                        "fingerprint": "chrome",
+                        "alpn": [
+                            "http/1.1"
+                        ],
+                        "show": false
+                    },
+                    "wsSettings": {
+                        "headers": {
+                            "Pragma": "no-cache",
+                            "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Mobile/15E148 Safari/604.1"
+                        },
+                        "path": "/hajmi?ed=2560",
+                        "host": "nb-fi.85858569.xyz"
+                    },
+                    "sockopt": {
+                        "dialerProxy": "dialer"
+                    }
+                },
+                "mux": {
+                    "enabled": true,
+                    "concurrency": 8,
+                    "xudpConcurrency": 8,
+                    "xudpProxyUDP443": "reject"
+                }
+            },
+            {
+                "tag": "dialer",
+                "protocol": "freedom",
+                "settings": {
+                    "fragment": {
+                        "packets": "1-2",
+                        "length": "1-5",
+                        "interval": "3-5"
+                    }
+                }
+            },
+            {
+                "tag": "direct",
+                "protocol": "freedom",
+                "settings": {
+                    "domainStrategy": "UseIPv4"
+                }
+            },
+            {
+                "tag": "block",
+                "protocol": "blackhole"
+            },
+            {
+                "tag": "dns-out",
+                "protocol": "dns"
+            }
+        ],
+        "stats": {}
     }
-},
-{
-    "remarks": "Germany",
-    "log": {
-        "loglevel": "warning"
-    },
-    "dns": {
-        "queryStrategy": "UseIPv4",
-        "servers": [
-            "https://1.0.0.1/dns-query"
-        ],
-        "tag": "dns_out"
-    },
-    "routing": {
-        "domainStrategy": "IPIfNonMatch",
-        "rules": [
-            {
-                "domain": [
-                    "geosite:category-ads-all"
-                ],
-                "outboundTag": "block"
-            },
-            {
-                "port": "53",
-                "network": "udp",
-                "outboundTag": "dns-out"
-            },
-            {
-                "domain": [
-                    "regexp:.*\\.ir",
-                    "domain:.ir"
-                ],
-                "outboundTag": "direct"
-            },
-            {
-                "ip": [
-                    "geoip:ir",
-                    "geoip:private"
-                ],
-                "outboundTag": "direct"
-            },
-            {
-                "protocol": [
-                    "bittorrent"
-                ],
-                "outboundTag": "block",
-                "type": "field"
-            }
-        ]
-    },
-    "policy": {
-        "system": {
-            "statsOutboundDownlink": true,
-            "statsOutboundUplink": true
-        }
-    },
-    "inbounds": [
-        {
-            "port": 10808,
-            "protocol": "socks",
-            "settings": {
-                "auth": "noauth",
-                "udp": true,
-                "userLevel": 8
-            },
-            "sniffing": {
-                "destOverride": [
-                    "http",
-                    "tls"
-                ],
-                "enabled": true
-            },
-            "tag": "socks"
-        },
-        {
-            "port": 10809,
-            "protocol": "http",
-            "settings": {
-                "userLevel": 8
-            },
-            "tag": "http"
-        }
-    ],
-    "outbounds": [
-        {
-            "tag": "proxy",
-            "protocol": "vless",
-            "settings": {
-                "vnext": [
-                    {
-                        "address": "www.tgju.org",
-                        "port": 443,
-                        "users": [
-                            {
-                                "id": "15473813-eca2-465d-8c7f-0b639d9566e6",
-                                "security": "auto",
-                                "encryption": "none",
-                                "email": "https://gozargah.github.io/marzban/",
-                                "alterId": 0,
-                                "flow": null
-                            }
-                        ]
-                    }
-                ]
-            },
-            "streamSettings": {
-                "network": "ws",
-                "security": "tls",
-                "tlsSettings": {
-                    "serverName": "85858569.xyz",
-                    "allowInsecure": true,
-                    "fingerprint": "chrome",
-                    "alpn": [
-                        "http/1.1"
-                    ],
-                    "show": false
-                },
-                "wsSettings": {
-                    "headers": {
-                        "Pragma": "no-cache",
-                        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_1_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Mobile/15E148 Safari/604.1"
-                    },
-                    "path": "/hajmi?ed=2560",
-                    "host": "nb-de.85858569.xyz"
-                },
-                "sockopt": {
-                    "dialerProxy": "dialer"
-                }
-            },
-            "mux": {
-                "enabled": true,
-                "concurrency": 8,
-                "xudpConcurrency": 8,
-                "xudpProxyUDP443": "reject"
-            }
-        },
-        {
-            "tag": "dialer",
-            "protocol": "freedom",
-            "settings": {
-                "fragment": {
-                    "packets": "1-2",
-                    "length": "1-5",
-                    "interval": "3-5"
-                }
-            }
-        },
-        {
-            "tag": "direct",
-            "protocol": "freedom",
-            "settings": {
-                "domainStrategy": "UseIPv4"
-            }
-        },
-        {
-            "tag": "block",
-            "protocol": "blackhole"
-        },
-        {
-            "tag": "dns-out",
-            "protocol": "dns"
-        }
-    ],
-    "stats": {}
-},
-{
-    "remarks": "Finland",
-    "log": {
-        "loglevel": "warning"
-    },
-    "dns": {
-        "queryStrategy": "UseIPv4",
-        "servers": [
-            "https://1.0.0.1/dns-query"
-        ],
-        "tag": "dns_out"
-    },
-    "routing": {
-        "domainStrategy": "IPIfNonMatch",
-        "rules": [
-            {
-                "domain": [
-                    "geosite:category-ads-all"
-                ],
-                "outboundTag": "block"
-            },
-            {
-                "port": "53",
-                "network": "udp",
-                "outboundTag": "dns-out"
-            },
-            {
-                "domain": [
-                    "regexp:.*\\.ir",
-                    "domain:.ir"
-                ],
-                "outboundTag": "direct"
-            },
-            {
-                "ip": [
-                    "geoip:ir",
-                    "geoip:private"
-                ],
-                "outboundTag": "direct"
-            },
-            {
-                "protocol": [
-                    "bittorrent"
-                ],
-                "outboundTag": "block",
-                "type": "field"
-            }
-        ]
-    },
-    "policy": {
-        "system": {
-            "statsOutboundDownlink": true,
-            "statsOutboundUplink": true
-        }
-    },
-    "inbounds": [
-        {
-            "port": 10808,
-            "protocol": "socks",
-            "settings": {
-                "auth": "noauth",
-                "udp": true,
-                "userLevel": 8
-            },
-            "sniffing": {
-                "destOverride": [
-                    "http",
-                    "tls"
-                ],
-                "enabled": true
-            },
-            "tag": "socks"
-        },
-        {
-            "port": 10809,
-            "protocol": "http",
-            "settings": {
-                "userLevel": 8
-            },
-            "tag": "http"
-        }
-    ],
-    "outbounds": [
-        {
-            "tag": "proxy",
-            "protocol": "vless",
-            "settings": {
-                "vnext": [
-                    {
-                        "address": "www.tgju.org",
-                        "port": 443,
-                        "users": [
-                            {
-                                "id": "15473813-eca2-465d-8c7f-0b639d9566e6",
-                                "security": "auto",
-                                "encryption": "none",
-                                "email": "https://gozargah.github.io/marzban/",
-                                "alterId": 0,
-                                "flow": null
-                            }
-                        ]
-                    }
-                ]
-            },
-            "streamSettings": {
-                "network": "ws",
-                "security": "tls",
-                "tlsSettings": {
-                    "serverName": "85858569.xyz",
-                    "allowInsecure": true,
-                    "fingerprint": "chrome",
-                    "alpn": [
-                        "http/1.1"
-                    ],
-                    "show": false
-                },
-                "wsSettings": {
-                    "headers": {
-                        "Pragma": "no-cache",
-                        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Mobile/15E148 Safari/604.1"
-                    },
-                    "path": "/hajmi?ed=2560",
-                    "host": "nb-fi.85858569.xyz"
-                },
-                "sockopt": {
-                    "dialerProxy": "dialer"
-                }
-            },
-            "mux": {
-                "enabled": true,
-                "concurrency": 8,
-                "xudpConcurrency": 8,
-                "xudpProxyUDP443": "reject"
-            }
-        },
-        {
-            "tag": "dialer",
-            "protocol": "freedom",
-            "settings": {
-                "fragment": {
-                    "packets": "1-2",
-                    "length": "1-5",
-                    "interval": "3-5"
-                }
-            }
-        },
-        {
-            "tag": "direct",
-            "protocol": "freedom",
-            "settings": {
-                "domainStrategy": "UseIPv4"
-            }
-        },
-        {
-            "tag": "block",
-            "protocol": "blackhole"
-        },
-        {
-            "tag": "dns-out",
-            "protocol": "dns"
-        }
-    ],
-    "stats": {}
-}
 ]
