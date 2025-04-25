@@ -442,7 +442,7 @@
     "stats": {}
 },
 {
-    "remarks": "Finland"
+    "remarks": "Finland",
     "log": {
         "loglevel": "warning"
     },
